@@ -25,7 +25,8 @@
             padding: 20px;
         }
         .header {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/hZ7hC9N/Triumph1.jpg');
+            /* Actualizamos la imagen de cabecera para usar el primer enlace de alta calidad */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/YF3Vjfwt/IMG-7187.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -180,36 +181,6 @@
             color: var(--primary-color);
         }
     </style>
-    <!-- Estilos para el lightbox que muestra las imágenes a tamaño completo -->
-    <style>
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.8);
-        }
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            font-size: 2.5em;
-            color: #fff;
-            cursor: pointer;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
 
@@ -265,18 +236,19 @@
         <div class="section">
             <h2>Galería de Fotos</h2>
             <div class="gallery">
-                <img src="https://i.ibb.co/hZ7hC9N/Triumph1.jpg" alt="Foto principal Triumph Tiger Sport 660">
-                <img src="https://i.ibb.co/k5tqg3r/Triumph2.jpg" alt="Vista lateral Triumph Tiger Sport 660">
-                <img src="https://i.ibb.co/jGMZt5k/Triumph3.jpg" alt="Detalle del motor">
-                <img src="https://i.ibb.co/Gvx0g7W/Triumph4.jpg" alt="Vista frontal">
-                <img src="https://i.ibb.co/Jq0x1LS/Triumph5.jpg" alt="Cuadro de instrumentos">
-                <img src="https://i.ibb.co/4pCJN3M/Triumph6.jpg" alt="Maletas laterales y baúl">
-                <img src="https://i.ibb.co/7gf50v0/Triumph7.jpg" alt="Pantalla Carpuride">
-                <img src="https://i.ibb.co/yQd6pFK/Triumph8.jpg" alt="Vista trasera">
-                <img src="https://i.ibb.co/L5rKz1x/Triumph9.jpg" alt="Asiento del piloto y pasajero">
-                <img src="https://i.ibb.co/c1z1JSc/Triumph10.jpg" alt="Detalle rueda trasera">
-                <img src="https://i.ibb.co/rpxx43d/Triumph11.jpg" alt="Vista desde el puesto del piloto">
-                <img src="https://i.ibb.co/Wc63BfH/Triumph12.jpg" alt="Vista lateral con maletas">
+                <!-- Sustituimos las miniaturas por imágenes de alta calidad alojadas en i.ibb.co -->
+                <img src="https://i.ibb.co/YF3Vjfwt/IMG-7187.jpg" alt="IMG 7187 - vista frontal principal">
+                <img src="https://i.ibb.co/jKnKhm4/IMG-7190.jpg" alt="IMG 7190 - vista lateral izquierda">
+                <img src="https://i.ibb.co/YFCWprS9/IMG-7191.jpg" alt="IMG 7191 - vista lateral derecha con maleta">
+                <img src="https://i.ibb.co/zVfRYDyc/IMG-7192.jpg" alt="IMG 7192 - vista trasera con parrilla">
+                <img src="https://i.ibb.co/ZRvJFkFX/IMG-7193.jpg" alt="IMG 7193 - vista trasera completa">
+                <img src="https://i.ibb.co/PvYPsxkJ/IMG-7194.jpg" alt="IMG 7194 - vista lateral completa">
+                <img src="https://i.ibb.co/BKzh0VVh/IMG-7195.jpg" alt="IMG 7195 - vista lateral con caballete">
+                <img src="https://i.ibb.co/5gmZ6RvT/IMG-7197.jpg" alt="IMG 7197 - lateral con maletas y baúl">
+                <img src="https://i.ibb.co/LXT4p81w/IMG-7198.jpg" alt="IMG 7198 - lateral con maletas vista opuesta">
+                <img src="https://i.ibb.co/jvHQRT2V/IMG-7199.jpg" alt="IMG 7199 - vista con topcase y maletas">
+                <img src="https://i.ibb.co/nMr6wjtm/IMG-7200.jpg" alt="IMG 7200 - detalle del cuadro y accesorios">
+                <img src="https://i.ibb.co/B2xzvbD7/IMG-7202.jpg" alt="IMG 7202 - pantalla Carpuride y accesorios">
             </div>
         </div>
 
@@ -327,47 +299,9 @@
             </div>
         </div>
     </div>
-    <!-- Lightbox para mostrar las imágenes ampliadas -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" src="" alt="Imagen ampliada" />
-    </div>
-
     <footer class="footer">
         <p>Página de venta particular para Triumph Tiger Sport 660. Valladolid.</p>
     </footer>
-
-    <!-- Script para el funcionamiento del lightbox -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const galleryImages = document.querySelectorAll('.gallery img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxClose = document.querySelector('.lightbox-close');
-
-        // Al hacer clic en cualquier imagen de la galería, mostrarla en el lightbox
-        galleryImages.forEach(img => {
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightbox.style.display = 'flex';
-            });
-        });
-
-        // Al hacer clic en el botón de cierre, ocultar el lightbox
-        lightboxClose.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-            lightboxImg.src = '';
-        });
-
-        // Al hacer clic fuera de la imagen (en el fondo del lightbox), ocultar el lightbox
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-                lightboxImg.src = '';
-            }
-        });
-    });
-    </script>
 
 </body>
 </html>
