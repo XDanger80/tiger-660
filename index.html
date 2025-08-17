@@ -25,7 +25,6 @@
             padding: 20px;
         }
         .header {
-            /* Actualizamos la imagen de cabecera para usar el primer enlace de alta calidad */
             background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/YF3Vjfwt/IMG-7187.jpg');
             background-size: cover;
             background-position: center;
@@ -180,6 +179,39 @@
             width: 40%;
             color: var(--primary-color);
         }
+        /* Estilos para el Lightbox (modal) */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80%;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .lightbox-close:hover {
+            color: var(--primary-color);
+        }
+        body.lightbox-open {
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -236,19 +268,18 @@
         <div class="section">
             <h2>Galería de Fotos</h2>
             <div class="gallery">
-                <!-- Sustituimos las miniaturas por imágenes de alta calidad alojadas en i.ibb.co -->
-                <img src="https://i.ibb.co/YF3Vjfwt/IMG-7187.jpg" alt="IMG 7187 - vista frontal principal">
-                <img src="https://i.ibb.co/jKnKhm4/IMG-7190.jpg" alt="IMG 7190 - vista lateral izquierda">
-                <img src="https://i.ibb.co/YFCWprS9/IMG-7191.jpg" alt="IMG 7191 - vista lateral derecha con maleta">
-                <img src="https://i.ibb.co/zVfRYDyc/IMG-7192.jpg" alt="IMG 7192 - vista trasera con parrilla">
-                <img src="https://i.ibb.co/ZRvJFkFX/IMG-7193.jpg" alt="IMG 7193 - vista trasera completa">
-                <img src="https://i.ibb.co/PvYPsxkJ/IMG-7194.jpg" alt="IMG 7194 - vista lateral completa">
-                <img src="https://i.ibb.co/BKzh0VVh/IMG-7195.jpg" alt="IMG 7195 - vista lateral con caballete">
-                <img src="https://i.ibb.co/5gmZ6RvT/IMG-7197.jpg" alt="IMG 7197 - lateral con maletas y baúl">
-                <img src="https://i.ibb.co/LXT4p81w/IMG-7198.jpg" alt="IMG 7198 - lateral con maletas vista opuesta">
-                <img src="https://i.ibb.co/jvHQRT2V/IMG-7199.jpg" alt="IMG 7199 - vista con topcase y maletas">
-                <img src="https://i.ibb.co/nMr6wjtm/IMG-7200.jpg" alt="IMG 7200 - detalle del cuadro y accesorios">
-                <img src="https://i.ibb.co/B2xzvbD7/IMG-7202.jpg" alt="IMG 7202 - pantalla Carpuride y accesorios">
+                <img src="https://i.ibb.co/YF3Vjfwt/IMG-7187.jpg" alt="Foto principal Triumph Tiger Sport 660">
+                <img src="https://i.ibb.co/jKnKhm4/IMG-7190.jpg" alt="Vista lateral Triumph Tiger Sport 660">
+                <img src="https://i.ibb.co/YFCWprS9/IMG-7191.jpg" alt="Detalle del motor">
+                <img src="https://i.ibb.co/zVfRYDyc/IMG-7192.jpg" alt="Vista frontal">
+                <img src="https://i.ibb.co/ZRvJFkFX/IMG-7193.jpg" alt="Cuadro de instrumentos">
+                <img src="https://i.ibb.co/PvYPsxkJ/IMG-7194.jpg" alt="Maletas laterales y baúl">
+                <img src="https://i.ibb.co/BKzh0VVh/IMG-7195.jpg" alt="Pantalla Carpuride">
+                <img src="https://i.ibb.co/5gmZ6RvT/IMG-7197.jpg" alt="Vista trasera">
+                <img src="https://i.ibb.co/LXT4p81w/IMG-7198.jpg" alt="Asiento del piloto y pasajero">
+                <img src="https://i.ibb.co/jvHQRT2V/IMG-7199.jpg" alt="Detalle rueda trasera">
+                <img src="https://i.ibb.co/nMr6wjtm/IMG-7200.jpg" alt="Vista desde el puesto del piloto">
+                <img src="https://i.ibb.co/B2xzvbD7/IMG-7202.jpg" alt="Vista lateral con maletas">
             </div>
         </div>
 
@@ -302,6 +333,41 @@
     <footer class="footer">
         <p>Página de venta particular para Triumph Tiger Sport 660. Valladolid.</p>
     </footer>
+
+    <!-- Estructura del Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span id="lightbox-close" class="lightbox-close">&times;</span>
+        <img id="lightbox-image" class="lightbox-content">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryImages = document.querySelectorAll('.gallery img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxClose = document.getElementById('lightbox-close');
+
+            galleryImages.forEach(image => {
+                image.addEventListener('click', () => {
+                    lightbox.style.display = 'flex';
+                    lightboxImage.src = image.src;
+                    document.body.classList.add('lightbox-open');
+                });
+            });
+
+            const closeLightbox = () => {
+                lightbox.style.display = 'none';
+                document.body.classList.remove('lightbox-open');
+            };
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
