@@ -25,7 +25,7 @@
             padding: 20px;
         }
         .header {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/YF3Vjfwt/IMG-7187.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/RGfnPr0q/Portada.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -45,16 +45,27 @@
             font-weight: 300;
         }
         .price {
-            font-size: 2.5em;
+            font-size: 2.8em;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #FFD700; /* Amarillo dorado */
             margin-top: 20px;
+            margin-bottom: 0; /* Ajuste para pegar el texto de abajo */
+            text-shadow: 
+                -1.5px -1.5px 0 var(--primary-color),  
+                 1.5px -1.5px 0 var(--primary-color),
+                -1.5px  1.5px 0 var(--primary-color),
+                 1.5px  1.5px 0 var(--primary-color);
         }
         .price-note {
-            font-size: 1em;
-            font-weight: 400;
-            margin-top: 5px;
-            color: #ccc;
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-top: 0; /* Reducido para acercarlo */
+            color: #FFD700; /* Amarillo dorado */
+            text-shadow: 
+                -1px -1px 0 var(--primary-color),  
+                 1px -1px 0 var(--primary-color),
+                -1px  1px 0 var(--primary-color),
+                 1px  1px 0 var(--primary-color);
         }
         .section {
             background-color: var(--card-bg-color);
@@ -91,11 +102,28 @@
             padding: 8px 0;
             border-bottom: 1px solid #333;
         }
+        ul.extras-list li:last-child {
+            border-bottom: none;
+        }
         ul.extras-list li::before {
             content: '✓';
             color: var(--primary-color);
             margin-right: 10px;
             font-weight: bold;
+        }
+        .highlighted-extras {
+            background-color: #0a0a0a;
+            border: 1px solid var(--primary-color);
+            border-left: 5px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .highlighted-extras h3 {
+            margin-top: 0;
+            color: #FFD700;
+            font-size: 1.4em;
+            margin-bottom: 15px;
         }
         .gallery {
             display: grid;
@@ -247,22 +275,25 @@
         </div>
 
         <div class="section">
-            <h2>Tecnología y Extras Incluidos</h2>
+            <h2>Tecnología y Equipamiento</h2>
             <p>Esta unidad, al ser el modelo 2025, ya incorpora de serie tecnología avanzada que no se encuentra en modelos anteriores:</p>
             <ul class="extras-list">
-                <li><strong>Triumph Shift Assist:</strong> Quickshifter bidireccional para subir y bajar marchas sin embrague.</li>
+                <li><strong>Triumph Shift Assist:</strong> Quickshifter bidireccional.</li>
                 <li><strong>Control de Crucero:</strong> Esencial para viajes.</li>
-                <li><strong>Electrónica Avanzada:</strong> ABS y Control de Tracción optimizados para curva gracias a la IMU de 6 ejes.</li>
-                <li><strong>Modos de Conducción:</strong> Road, Rain y el nuevo modo Sport.</li>
-                <li><strong>Conectividad My Triumph:</strong> Módulo Bluetooth para navegación, llamadas y música.</li>
+                <li><strong>Electrónica Avanzada:</strong> ABS y Control de Tracción optimizados para curva.</li>
+                <li><strong>Modos de Conducción:</strong> Road, Rain y Sport.</li>
+                <li><strong>Conectividad My Triumph:</strong> Módulo Bluetooth integrado.</li>
             </ul>
-            <p style="margin-top:20px;">Además, se incluyen los siguientes extras valorados en más de 1.300€:</p>
-            <ul class="extras-list">
-                <li><strong>Maletas laterales originales Triumph</strong> (Valor 725€)</li>
-                <li><strong>Parrilla y maleta central SHAD SH47</strong> (capacidad para dos cascos) (Valor 260€)</li>
-                <li><strong>Pantalla Carpuride 702 Pro</strong> con Apple CarPlay/Android Auto y sensores de presión de neumáticos.</li>
-                <li><strong>Soporte específico Evotech</strong> para la pantalla Carpuride. (Conjunto valorado en 380€)</li>
-            </ul>
+            
+            <div class="highlighted-extras">
+                <h3>Extras Adicionales (Valorados en más de 1.300€)</h3>
+                <ul class="extras-list">
+                    <li><strong>Maletas laterales originales Triumph</strong> (Valor 725€)</li>
+                    <li><strong>Parrilla y maleta central SHAD SH47</strong> (capacidad para dos cascos) (Valor 260€)</li>
+                    <li><strong>Pantalla Carpuride 702 Pro</strong> con Apple CarPlay/Android Auto y sensores de presión de neumáticos.</li>
+                    <li><strong>Sportte específico Evotech</strong> para la pantalla Carpuride. (Conjunto valorado en 380€)</li>
+                </ul>
+            </div>
         </div>
 
         <div class="section">
